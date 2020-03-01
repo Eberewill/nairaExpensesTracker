@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react';
- 
-const TransactionList = () => {
-   
-        return (
-            <Fragment>
-                
-                <h3>History</h3>
-                <ul class="list">
-                 <li class="minus">
-          Cash <span>-₦400</span><button class="delete-btn">x</button>
-        </li>
+import React, { useContext } from 'react';
+import { Transaction } from './Transaction';
+
+import { GlobalContext } from '../context/GlobalState';
+
+ const TransactionList = () => {
+  const { transactions } = useContext(GlobalContext);
+
+  return (
+    <>
+      <h3>History</h3>
+      <ul className="list">
+        {transactions.map(transaction => (<Transaction key={transaction.id} transaction={transaction} />))}
       </ul>
-            </Fragment>
-        );
-    
+    </>
+  )
 }
 
 export default TransactionList;

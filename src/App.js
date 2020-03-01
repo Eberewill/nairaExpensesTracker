@@ -2,14 +2,16 @@ import React from 'react';
 
 import './App.css';
 import Header from './components/Header'
-import Ballance from './components/Ballance'
-import IncomeExpences from './components/IncomeExpences'
+import Ballance from './components/Balance'
+import IncomeExpences from './components/IncomeExpenses'
 import TransactionList from './components/TransactionList'
 import AddTransaction from './components/AddTransaction'
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
   return (
-    <div>
+    
+      <GlobalProvider>
      <Header/>
      <div className="container">
        <Ballance/>
@@ -18,7 +20,7 @@ function App() {
        <AddTransaction/>
 
      </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
